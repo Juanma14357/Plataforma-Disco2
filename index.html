@@ -5,9 +5,10 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title> Soda Stereo </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-        <script src='main.js'></script>
+        <link rel='stylesheet' type='text/css' media='screen' href='.css/styles.css'>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src='./main.js'></script>
         <link rel="icon" href="Img/Icono.jpg" type="image/png">
         <link rel="stylesheet" href=".css/styles.css"> 
     </head>
@@ -17,7 +18,7 @@
 
 
             <!-- SIDE BAR -->
-            <div class="bg-red-700 w-1/6 h-screen text-white fixed top-0 left-0 text-left ">
+            <div class="bg-red-700 w-1/6 h-full text-white fixed top-0 left-0 text-left ">
                 <div class="flex flex-col items-center">
             
                     <div class="flex mb-6">
@@ -26,7 +27,7 @@
                     </div>
             
                     <hr class=" border-t-2 border-black w-3/4">
-
+                    
                     <ul class="underline text-2xl mt-6 font-bold">
                         <li class="m-2"><a href="index.html">Home</a></li>
                         <li class="m-2"><a href="login.html">Log In</a></li>
@@ -42,8 +43,10 @@
 
 
              <!-- MAIN -->    
-            <div class="bg-blue-900 div-principal h-full ml text-white ">
+            <div class="bg-blue-900 div-principal h-full w-full text-white ">
                 <div class="flex flex-col">
+
+                    
 
                     <img src="Img/Soda_stereo.jpg" alt="ERROR" class=" w-1/4 mt-16 mx-auto">
 
@@ -55,6 +58,7 @@
                         Soda Stereo es una banda de rock argentina formada en 1982 originalmente por el cantante y guitarrista Gustavo Cerati, el bajista Zeta Bosio y el baterista Charly Alberti.​ Es considerada ampliamente por la crítica especializada como la banda más importante, popular e influyente del rock en español​ y una leyenda de la música latinoamericana.
                     </p>
 
+                    <button onclick="saludar()"> CLICK</button>
 
                 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto mt-24">

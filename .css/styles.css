@@ -9,3 +9,9 @@
 .div-principal {
     margin-left: calc(100% / 6); /* Ajusta esto según el ancho de la barra lateral */
 }
+
+.disabled {
+    background-color: red !important; /* Forzar el color de fondo a rojo */
+    cursor: not-allowed;
+}
+
