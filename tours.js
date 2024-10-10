@@ -1,4 +1,4 @@
-/*
+
 let nombre = prompt("Cuál es tu nombre?").toUpperCase();
 while (nombre.length < 3) {
   nombre = prompt(
@@ -11,7 +11,7 @@ span.textContent = `Hola, ${nombre}`;
 
 const i = document.querySelector("i");
 i.setAttribute("class", "fa fa-ticket");
-*/
+
 ///////
 
 function Edad() {
@@ -34,7 +34,6 @@ function Edad() {
         console.log(`Botón ${button.innerText} desactivado: ${button.disabled}`); // Comprobación
     });
   }
-
 
 
   window.onload = Edad;
@@ -64,7 +63,7 @@ function Edad() {
   }
 
 
-  disableSoldOutButtons(city); // Llamar a la función pasando la ciudad
+  disableSoldOutButtons(city); 
 }
 
 function disableSoldOutButtons(city) {
@@ -72,9 +71,9 @@ function disableSoldOutButtons(city) {
   const button = document.querySelector(`button[onclick*="${city}"]`); // Seleccionar el botón correspondiente
 
   if (tickets[city] <= 0) {
-      button.disabled = true; // Deshabilitar el botón
-      button.innerText = "Sold Out"; // Cambiar el texto del botón
-      button.classList.add("disabled"); // Añadir la clase "disabled"
+      button.disabled = true; 
+      button.innerText = "Sold Out"; 
+      button.classList.add("disabled"); 
   }
 }
 
