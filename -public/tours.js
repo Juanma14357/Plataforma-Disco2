@@ -70,7 +70,7 @@ function disableSoldOutButtons(city) {
 
   const button = document.querySelector(`button[onclick*="${city}"]`); // Seleccionar el botón correspondiente
 
-  if (tickets[city] <= 0) {
+  if (tickets[city] <= 0) {       
       button.disabled = true; 
       button.innerText = "Sold Out"; 
       button.classList.add("disabled"); 
