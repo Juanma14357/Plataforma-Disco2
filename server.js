@@ -12,11 +12,16 @@ const url = "mongodb+srv://juancomes54:6vojNqZUvqiSIZeg@proyecto.4lap9.mongodb.n
 const app = express();
 const PORT = 3000;
 
-// Middleware para usar el router
-app.use('/', router);
+// Middleware para parsear el cuerpo de las solicitudes en JSON
 app.use(express.json());
 
-// Función para conectar a MongoDB
+// Usar las rutas definidas en index.js
+app.use('/', router);
+
+// Middleware estático para archivos públicos
+app.use(express.static(path.join(__dirname, "public")));
+
+// Conectar a MongoDB
 const connectToMongo = async () => {
   try {
     await mongoose.connect(url);
@@ -26,13 +31,9 @@ const connectToMongo = async () => {
   }
 };
 
-// Ejecutar la función para conectar a MongoDB
 connectToMongo();
 
 // Levantar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en puerto ${PORT}`);
 });
-
-// Configuración de archivos estáticos
-app.use(express.static(path.join(__dirname, "public")));

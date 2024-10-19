@@ -1,14 +1,14 @@
 import { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
 const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 
-const Propiedad = new Schema({
-    Nombre: { type: String,  required: true },
-    Apellido: { type: String,  required: true },
-    email: {
+const UsuarioSchema = new Schema({
+    Nombre: { type: String,   },
+    Apellido: { type: String,   },
+    Email: {
       type: String,
-      required: true,
       validate: {
         validator: function(v) {
           return regex.test(v);
@@ -16,8 +16,9 @@ const Propiedad = new Schema({
         message: "Debes ingresar un mail válido",
       },
     },
-    Contraseña: { type: String,  required: true },
+    Contraseña: { type: String,   },
     Favoritos: { type: String },
   });
 
-  // 6vojNqZUvqiSIZeg
+export default mongoose.model('User', UsuarioSchema); 
+
