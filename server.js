@@ -15,11 +15,14 @@ const PORT = 3000;
 // Middleware para parsear el cuerpo de las solicitudes en JSON
 app.use(express.json());
 
-// Usar las rutas definidas en index.js
-app.use('/', router);
+
+
 
 // Middleware estático para archivos públicos
 app.use(express.static(path.join(__dirname, "public")));
+
+// Usar las rutas definidas en index.js
+app.use('/', router);
 
 // Conectar a MongoDB
 const connectToMongo = async () => {

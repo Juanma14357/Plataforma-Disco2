@@ -3,10 +3,9 @@ import mongoose from 'mongoose';
 
 const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-
 const UsuarioSchema = new Schema({
-    Nombre: { type: String,   },
-    Apellido: { type: String,   },
+    Nombre: { type: String },
+    Apellido: { type: String },
     Email: {
       type: String,
       validate: {
@@ -16,9 +15,8 @@ const UsuarioSchema = new Schema({
         message: "Debes ingresar un mail válido",
       },
     },
-    Contraseña: { type: String,   },
-    Favoritos: { type: String },
-  });
+    Contraseña: { type: String },
+    Favoritos: { type: [String], default: [] },  // Cambiado a arreglo de cadenas
+});
 
-export default mongoose.model('User', UsuarioSchema); 
-
+export default mongoose.model('User', UsuarioSchema);
