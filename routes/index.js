@@ -56,18 +56,20 @@ router.put('/user/:id', async (req, res) => {
   }
 });
 
-// Crear un álbum
+
+// Crear un album
 router.post('/band', async (req, res) => {
-  const { Titulo, Descripcion, Año, Canciones, Portada } = req.body; 
+  const { Titulo, Descripcion, Año, Portada } = req.body; 
   try {
-    const newAlbum = new Album({ Titulo, Descripcion, Año, Canciones, Portada });
-    const savedAlbum = await newAlbum.save();
-    res.status(201).json({ message: 'Álbum creado exitosamente', album: savedAlbum });
+      const newAlbum = new Album({ Titulo, Descripcion, Año, Portada });
+      const savedAlbum = await newAlbum.save();
+      res.status(201).json({ message: 'Álbum creado exitosamente', album: savedAlbum });
   } catch (error) {
-    console.error("Error al crear el álbum:", error);
-    res.status(500).json({ message: 'Error al crear el álbum' });
+      console.error("Error al crear el álbum:", error.message); 
+      res.status(500).json({ message: 'Error al crear el álbum', error: error.message });
   }
 });
+
 
 // Editar un álbum
 router.put('/band/:id', async (req, res) => {

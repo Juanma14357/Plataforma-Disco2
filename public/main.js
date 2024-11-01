@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+
 // Función para alternar el estado de favorito
 function toggleFavorite(element) {
     element.classList.toggle('active');
@@ -6,8 +9,8 @@ function toggleFavorite(element) {
 // Función para obtener álbumes desde el servidor
 async function obtenerAlbum() {
     try {
-        const response = await axios.get('http://localhost:3000/band'); // Asegúrate de que esta URL esté correcta
-        renderAlbums(response.data); // Llama a renderAlbums con los datos obtenidos
+        const response = await axios.get('http://localhost:3000/band'); 
+        renderAlbums(response.data); 
     } catch (error) {
         console.log("Error al obtener álbumes:", error);
     }
@@ -16,7 +19,7 @@ async function obtenerAlbum() {
 // Función para renderizar los álbumes en el contenedor
 function renderAlbums(albums) {
     const albumContainer = document.getElementById('album-container');
-    albumContainer.innerHTML = ''; // Limpia el contenedor antes de agregar nuevos álbumes
+    albumContainer.innerHTML = ''; 
 
     albums.forEach(album => {
         const albumDiv = document.createElement('div');
@@ -29,17 +32,17 @@ function renderAlbums(albums) {
             <img src="${album.Portada}" alt="${album.Titulo}" class="h-64 mx-auto rounded-lg">
         `;
 
-        // Agregar el evento de clic para redirigir al álbum
+
         albumDiv.querySelector('img').addEventListener('click', () => {
             redirect(album._id); // Asegúrate de que el ID del álbum esté disponible
         });
 
-        // (Opcional) Si deseas incluir un botón para marcar como favorito
+ 
         const favoriteButton = document.createElement('button');
         favoriteButton.innerText = 'Favorito';
         favoriteButton.classList.add('absolute', 'top-2', 'right-2', 'bg-blue-500', 'text-white', 'rounded');
         favoriteButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Evita que se dispare el evento de clic en la imagen
+            event.stopPropagation(); 
             toggleFavorite(favoriteButton); // Llama a la función para alternar el favorito
         });
         albumDiv.appendChild(favoriteButton);
