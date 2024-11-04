@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 const CancionSchema = new Schema({
     Titulo: { type: String, required: true },
     Duracion: { type: Number, required: true },
+    Url: { type: String },
 });
 
 const AlbumSchema = new Schema({

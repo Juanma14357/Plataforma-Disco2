@@ -5,74 +5,60 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title> Soda Stereo </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-        <script src='main.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Incluye SweetAlert -->
         <link rel="icon" href="Img/Icono.jpg" type="image/png">
-        <link rel="stylesheet" href=".css/styles.css"> 
     </head>
 
     <body>
         <div class="flex">
-
-
             <!-- SIDE BAR -->
-            <div class="bg-red-700 w-1/6 h-screen text-white fixed top-0 left-0 text-left ">
+            <div class="bg-red-700 w-1/6 h-screen text-white sticky top-0 left-0 text-left">
                 <div class="flex flex-col items-center">
-            
-                    <div class="flex mb-6">
-                        <img src="Img/Icono.jpg" alt="ERROR" id="img" class=" w-1/3 rounded-xl "></img> 
-                        <h2 class=" text-xl mx-auto my-auto font-bold   mr-8"></h2>
+                    <div class="flex m-6">
+                        <img src="Img/Icono.jpg" alt="ERROR" id="img" class="w-1/3 rounded-xl">
+                        <h2 class="text-xl mx-auto my-auto font-bold mr-8"></h2>
                     </div>
-            
-                    <hr class=" border-t-2 border-black w-3/4">
-            
+                    <hr class="border-t-2 border-black w-3/4">
                     <ul class="underline text-2xl mt-6 font-bold">
                         <li class="m-2"><a href="index.html">Home</a></li>
                         <li class="m-2"><a href="login.html">Log In</a></li>
                         <li class="m-2"><a href="addSong.html">Add Song</a></li>
-                        <li class="m-2"><a href="editAlbum.html">Edit Album</a></li>
+                        <li class="m-2"><a href="addAlbum.html">Add Album</a></li>
                         <li class="m-2"><a href="tours.html">Tickets</a></li>
                         <li class="m-2"><a href="sign_up.html">Log out</a></li>
                     </ul>
                 </div>
             </div>
-            
 
-
-
-             <!-- MAIN -->    
-            <div class="bg-blue-900 div-principal w-5/6 h-screen text-white ">
+            <!-- MAIN -->    
+            <div class="bg-blue-900 w-5/6 h-screen text-white ml-1/6">
                 <div class="flex flex-col">
-
                     <h1 class="text-center text-6xl mb-12 mt-8 underline mx-auto font-bold">
                         SODA STEREO
                     </h1>
-
                     <div class="border-2 w-1/2 mx-auto text-center bg-blue-800 rounded-lg">
                         <h3 class="text-6xl underline mb-6 mt-6">Add Song</h3>
-                
-                        <form class="text-2xl pb-5" >
-
-
+                        <form class="text-2xl pb-5">
                             <label for="Titulo">Titulo:</label><br>
-                            <input type="Titulo" id="Titulo" name="Titulo" required class="text-black rounded-md"><br><br>
-                
+                            <input type="text" id="Titulo" name="Titulo" required class="text-black rounded-md"><br><br>
 
                             <label for="Duracion">Duracion:</label><br>
-                            <input type="Duracion" id="Duracion" name="Duracion" required class="text-black rounded-md"><br><br>
-                            
-                            <label for="Link" ">Link:</label><br>
-                            <input type="Link" id="Link" required class="text-black rounded-md"><br><br>
+                            <input type="text" id="Duracion" name="Duracion" required class="text-black rounded-md"><br><br>
+
+                            <label for="Url">Url:</label><br>
+                            <input type="text" id="Url" required class="text-black rounded-md"><br><br>
 
                             <div class="flex justify-center space-x-4 mt-4">
                                 <a href="album.html" class="bg-red-700 text-white px-5 py-2 rounded-md hover:bg-red-600 transition">Cancelar</a>
-                                <button type="submit" class="bg-green-700 text-white px-5 py-2 rounded-md hover:bg-green-600 transition">Añadir</button>
+                                <button type="submit" id="buttonAddSong" class="bg-green-700 text-white px-5 py-2 rounded-md hover:bg-green-600 transition">Añadir</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>   
-        </div >
+        </div>
+        <script src="addSong.js"></script> 
     </body>
 </html>

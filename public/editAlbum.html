@@ -1,82 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title> Soda Stereo </title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-        <script src='main.js'></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <link rel="icon" href="Img/Icono.jpg" type="image/png">
-        <link rel="stylesheet" href=".css/styles.css"> 
-    </head>
-
-    <body>
-        <div class="flex ">
-
-
-            <!-- SIDE BAR -->
-            <div class="bg-red-700 w-1/6 h-screen text-white fixed top-0 left-0 text-left ">
-                <div class="flex flex-col items-center">
-            
-                    <div class="flex mb-6">
-                        <img src="Img/Icono.jpg" alt="ERROR" id="img" class=" w-1/3 rounded-xl "></img> 
-                        <h2 class=" text-xl mx-auto my-auto font-bold   mr-8"> </h2>
-                    </div>
-            
-                    <hr class=" border-t-2 border-black w-3/4">
-            
-                    <ul class="underline text-2xl mt-6 font-bold">
-                        <li class="m-2"><a href="index.html">Home</a></li>
-                        <li class="m-2"><a href="login.html">Log In</a></li>
-                        <li class="m-2"><a href="addSong.html">Add Song</a></li>
-                        <li class="m-2"><a href="editAlbum.html">Edit Album</a></li>
-                        <li class="m-2"><a href="tours.html">Tickets</a></li>
-                        <li class="m-2"><a href="sign_up.html">Log out</a></li>
-                    </ul>
-                </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Álbum</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body class="bg-blue-900 text-white">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl text-center mb-4">Editar Album</h1>
+        <form id="editAlbumForm" class="bg-blue-800 p-6 rounded-lg">
+            <div class="mb-4">
+                <label for="titulo" class="blocktext-lg font-semibold">Título</label>
+                <input type="text" id="titulo" class="w-full p-2 rounded-lg bg-black" required>
             </div>
-            
+            <div class="mb-4">
+                <label for="ano" class="block text-lg font-semibold">Año</label>
+                <input type="text" id="ano" class="w-full p-2 rounded-lg bg-black" required>
+            </div>
+            <div class="mb-4">
+                <label for="descripcion" class="block text-lg font-semibold">Descripción</label>
+                <textarea id="descripcion" class="w-full p-2 rounded-lg bg-black" rows="4" required></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="portada" class="block text-lg font-semibold">Portada URL</label>
+                <input type="url" id="portada" class="w-full p-2 rounded-lg bg-black" required>
+            </div>
+            <button type="submit" class="w-full bg-red-500  p-2 rounded-lg">Guardar Cambios</button>
+        </form>
+        <button class="ml-2 font-bold underline mt-4 text-lg" onclick="goBack()">Cancelar</button>
+    </div>
 
-
-
-             <!-- MAIN -->    
-            <div class="bg-blue-900 div-principal w-5/6 h-full text-white ">
-                <div class="flex flex-col">
-
-                    <h1 class="text-center text-6xl mb-12 mt-8 underline mx-auto font-bold">
-                        SODA STEREO
-                    </h1>
-
-                    <div class="border-2 w-1/2 mx-auto text-center bg-blue-800 rounded-lg">
-                        <h3 class="text-6xl underline mb-6 mt-6">Edit Album</h3>
-                
-                        <form id="albumForm" class="text-2xl pb-5">
-                            <label for="Titulo">Título:</label><br>
-                            <input type="text" id="Titulo" name="Titulo" required class="text-black rounded-md"><br><br>
-                        
-                            <label for="Descripcion">Descripción:</label><br>
-                            <textarea id="Descripcion" name="Descripcion" required rows="3" class="w-2/3 p-3 rounded-md bg-white text-black"></textarea><br><br>
-                        
-                            <label for="Año">Año:</label><br>
-                            <input type="number" id="Año" name="Año" required class="text-black rounded-md"><br><br>
-                        
-                            <label for="Portada">Portada (URL):</label><br>
-                            <input type="text" id="Portada" name="Portada" class="text-black rounded-md"><br><br>
-                        
-                            <div class="flex justify-center space-x-4 mt-4">
-                                <button type="submit" class="bg-green-700 text-white px-5 py-2 rounded-md hover:bg-green-600 transition">Guardar Álbum</button>
-                            </div>
-                        </form>
-                        
-                        
-                    </div>
-                </div>
-            </div>   
-        </div >
-
-        <script src="editAlbum.js"></script> 
-    </body>
+    <script src="editAlbum.js"></script>
+</body>
 </html>

@@ -5,25 +5,25 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title> Soda Stereo </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-        <script src='login.js'></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script defer src='addAlbum.js'></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link rel="icon" href="Img/Icono.jpg" type="image/png">
         <link rel="stylesheet" href=".css/styles.css"> 
     </head>
 
     <body>
-        <div class="flex">
+        <div class="flex ">
 
 
             <!-- SIDE BAR -->
             <div class="bg-red-700 w-1/6 h-screen text-white fixed top-0 left-0 text-left ">
                 <div class="flex flex-col items-center">
             
-                    <div class="flex mb-6">
+                    <div class="flex m-6">
                         <img src="Img/Icono.jpg" alt="ERROR" id="img" class=" w-1/3 rounded-xl "></img> 
-                        <h2 class=" text-xl mx-auto my-auto font-bold mr-8"> </h2>
+                        <h2 class=" text-xl mx-auto my-auto font-bold   mr-8"> </h2>
                     </div>
             
                     <hr class=" border-t-2 border-black w-3/4">
@@ -43,7 +43,7 @@
 
 
              <!-- MAIN -->    
-            <div class="bg-blue-900 div-principal w-5/6 h-screen text-white ">
+            <div class="bg-blue-900 div-principal w-5/6 h-full text-white ">
                 <div class="flex flex-col">
 
                     <h1 class="text-center text-6xl mb-12 mt-8 underline mx-auto font-bold">
@@ -51,32 +51,31 @@
                     </h1>
 
                     <div class="border-2 w-1/2 mx-auto text-center bg-blue-800 rounded-lg">
-                        <h3 class="text-6xl underline mb-6 mt-6">Login</h3>
+                        <h3 class="text-6xl underline mb-6 mt-6">Add Album</h3>
                 
-                        <form id="login-formulario" class="text-2xl"> <!-- Agregamos el id 'login-form' -->
-                            <!-- Campo para el correo electrónico -->
-                            <label for="email">Email:</label><br>
-                            <input type="email" id="email" name="email" required class="text-black rounded-md"><br><br>
+                        <form id="albumForm" class="text-2xl pb-5">
+                            <label for="Titulo">Título:</label><br>
+                            <input type="text" id="Titulo" name="Titulo" required class="text-black rounded-md"><br><br>
                         
-                            <!-- Campo para la contraseña -->
-                            <label for="password">Contraseña:</label><br>
-                            <input type="password" id="password" required class="text-black rounded-md"><br><br>
+                            <label for="Descripcion">Descripción:</label><br>
+                            <textarea id="Descripcion" name="Descripcion" required rows="3" class="w-2/3 p-3 rounded-md bg-white text-black"></textarea><br><br>
                         
-                            <!-- Botón de Iniciar Sesión -->
-                            <button type="submit" class="bg-red-800 rounded-md text-black p-3">Iniciar Sesion</button> <!-- Cambiamos <a> por <button> -->
+                            <label for="Año">Año:</label><br>
+                            <input type="number" id="Año" name="Año" required class="text-black rounded-md"><br><br>
+                        
+                            <label for="Portada">Portada (URL):</label><br>
+                            <input type="text" id="Portada" name="Portada" class="text-black rounded-md"><br><br>
+                        
+                            <div class="flex justify-center space-x-4 mt-4">
+                                <button type="submit" class="bg-green-700 text-white px-5 py-2 rounded-md hover:bg-green-600 transition">Guardar Álbum</button>
+                            </div>
                         </form>
                         
-                        <div class="text-right text-lg mr-8 mb-8">
-                            <p class="mb-3 ">
-                                ¿No sos miembro?
-                            </p>
-                            <a>
-                                <a href="sign_up.html" class="font-bold">Registrate</a>
-                            </a>    
-                        </div>
+                        
                     </div>
                 </div>
             </div>   
         </div >
+
     </body>
 </html>

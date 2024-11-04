@@ -84,15 +84,15 @@ router.put('/band/:id', async (req, res) => {
 
 // Agregar o eliminar canción en el álbum
 router.put('/band/:id/cancion', async (req, res) => {
-  const { Cancion, accion } = req.body; 
+  const { Cancion, accion } = req.body; // Asegúrate de que Cancion contenga Titulo, Duracion y Url
   try {
     const album = await Album.findById(req.params.id);
     if (!album) return res.status(404).json({ message: "Álbum no encontrado" });
 
     if (accion === 'agregar') {
-      album.Canciones.push(Cancion);
+      album.Canciones.push(Cancion); // Cancion debería incluir Titulo, Duracion y Url
     } else if (accion === 'eliminar') {
-      album.Canciones = album.Canciones.filter(c => c !== Cancion);
+      album.Canciones = album.Canciones.filter(c => c.Titulo !== Cancion.Titulo);
     }
 
     const updatedAlbum = await album.save();
@@ -104,10 +104,12 @@ router.put('/band/:id/cancion', async (req, res) => {
 
 // Obtener todos los álbumes
 router.get('/band', async (req, res) => {
+  console.log("Solicitud recibida para obtener todos los álbumes"); // Agregar log
   try {
-    const albums = await Album.find(); // Obtén todos los álbumes
+    const albums = await Album.find(); 
     res.json(albums); // Devuelve los álbumes en formato JSON
   } catch (error) {
+    console.error("Error al obtener los álbumes:", error.message); 
     res.status(500).json({ message: "Error al obtener los álbumes" });
   }
 });
@@ -134,5 +136,27 @@ router.delete('/band/:id', async (req, res) => {
     res.status(500).json({ message: "Error al eliminar el álbum" });
   }
 });
+
+
+
+// Eliminar cancion de un album
+router.delete('/band/:albumId/cancion/:songId', async (req, res) => {
+  const { albumId, songId } = req.params;
+  try {
+      const album = await Album.findById(albumId);
+      
+      if (!album) return res.status(404).json({ message: "Álbum no encontrado" });
+      
+      // Filtra y elimina la canción
+      album.Canciones = album.Canciones.filter(cancion => cancion._id.toString() !== songId);
+      await album.save();
+      
+      res.json({ message: "Canción eliminada correctamente" });
+  } catch (error) {
+      res.status(500).json({ message: "Error al eliminar la canción" });
+  }
+});
+
+
 
 export default router;
