@@ -7,7 +7,7 @@ function getAlbumId() {
 // Función para obtener los detalles del álbum
 async function obtenerDetallesAlbum(id) {
     try {
-        const response = await axios.get(`http://localhost:3000/band/${id}`); // Ajusta la URL según tu API
+        const response = await axios.get(`http://localhost:3000/band/${id}`);
         renderAlbum(response.data);
     } catch (error) {
         console.error("Error al obtener detalles del álbum:", error);

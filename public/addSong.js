@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const titulo = document.getElementById('Titulo').value;
         const duracion = document.getElementById('Duracion').value;
-        const url = document.getElementById('Url').value; // Cambié 'Link' a 'Url' para que coincida con tu modelo
+        const url = document.getElementById('Url').value; 
 
         const cancion = {
             Titulo: titulo,
             Duracion: duracion,
-            Url: url, // Asegúrate de que esto coincida con tu esquema de Mongoose
+            Url: url, 
         };
 
         try {
