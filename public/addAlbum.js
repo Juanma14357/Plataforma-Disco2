@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!titulo || !año) {
             errorMessage += 'El título y el año son obligatorios. ';
         }
-        if (descripcion.length > 14) {
-            errorMessage += 'La descripción no puede tener más de 14 caracteres.';
+        if (descripcion.length > 50) {
+            errorMessage += 'La descripción no puede tener más de 50 caracteres.';
         }
 
         // Si hay mensajes de error, mostramos un SweetAlert2
