@@ -2,15 +2,25 @@ import express from 'express';
 import router from './routes/index.js';
 import mongoose from 'mongoose';
 import path from 'path';
+import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import cors from 'cors'; // Importa el paquete CORS
+import cors from 'cors';
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const url = "mongodb+srv://juancomes54:6vojNqZUvqiSIZeg@proyecto.4lap9.mongodb.net/?retryWrites=true&w=majority&appName=Proyecto";
+const Password = process.env.Password; // Acceder a la variable de entorno para la contraseña
+const PORT = process.env.PORT; // Acceder a la variable de entorno para el puerto
+
+// Usar backticks para interpolar la contraseña en la URL
+const url = `mongodb+srv://juancomes54:${Password}@proyecto.4lap9.mongodb.net/?retryWrites=true&w=majority&appName=Proyecto`;
+
 const app = express();
-const PORT = 3000;
+
+// Ruta para el Health Check de Render
+app.use("/health", (req, res) => res.sendStatus(200));
 
 // Middleware para permitir CORS
 app.use(cors());
@@ -37,6 +47,6 @@ const connectToMongo = async () => {
 connectToMongo();
 
 // Levantar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en puerto ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Servidor escuchando en puerto ${process.env.PORT || 3000}`);
 });
